@@ -1,0 +1,28 @@
+{
+    "name": "lendingworks/rf-wordpress-woocommerce",
+    "type": "project",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "LendingWorks Ltd",
+            "email": "tech@lendingworks.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php" : "5.6.*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/",
+            "../../../wp-includes",
+            "../woocommerce/includes"
+        ],
+        "exclude-from-classmap": [
+            "../woocommerce/includes/api/legacy",
+            "../woocommerce/includes/api/v1",
+            "../woocommerce/includes/api/v2"
+        ]
+    }
+}

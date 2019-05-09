@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+.phpunit*
+lendingworks/composer.*
+lendingworks/vendor/*
+vendor
+lendingworks/tests/functional/phpunit
+wordpress*
+junit.xml
+.composer
+backups/dump.sql

@@ -1,0 +1,4 @@
+lendingworks/vendor
+composer.*
+?phpunit.*
+phpunit.*

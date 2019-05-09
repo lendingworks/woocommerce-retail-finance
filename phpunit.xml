@@ -1,0 +1,17 @@
+<phpunit
+        bootstrap="./lendingworks/tests/bootstrap.php"
+        backupGlobals="false"
+        colors="true" >
+    <testsuites>
+        <testsuite name="lendingworks">
+            <directory suffix="-test.php">./lendingworks/tests</directory>
+            <exclude>./lendingworks/tests/functional</exclude>
+        </testsuite>
+    </testsuites>
+
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">lendingworks/lib</directory>
+		</whitelist>
+	</filter>
+</phpunit>
