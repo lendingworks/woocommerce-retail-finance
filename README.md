@@ -44,8 +44,7 @@ composer seed
 composer post-build
 ```
 
-This will populate the database with an admin user `lendingworks`. You can find the password
-in `LW - Technology - Infrastructure - Tier 2` vault in 1password.
+This will populate the database with an admin user `lendingworks`. The password is `admin`.
 
 ## Tests
 
