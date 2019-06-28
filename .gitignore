@@ -8,4 +8,3 @@ lendingworks/tests/functional/phpunit
 wordpress*
 junit.xml
 .composer
-backups/dump.sql
