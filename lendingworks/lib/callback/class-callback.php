@@ -114,7 +114,7 @@ class Callback {
 	/**
 	 * Register a new route this callback will be responding on.
 	 */
-	public function regiter_callback_route() {
+	public function register_callback_route() {
 		$this->woocommerce->add_route(
 			'lendingworks',
 			'/orders/update-status',
@@ -136,10 +136,10 @@ class Callback {
 	public function handle_custom_query( $query, $query_vars ) {
 
 		if ( ! empty( $query_vars[ Payment_Gateway::ORDER_REFERENCE_METADATA_KEY ] ) ) {
-			$query['meta_query'][] = array(
+			$query['meta_query'][] = [
 				'key'   => Payment_Gateway::ORDER_REFERENCE_METADATA_KEY,
 				'value' => $query_vars[ Payment_Gateway::ORDER_REFERENCE_METADATA_KEY ],
-			);
+			];
 		}
 
 		return $query;
