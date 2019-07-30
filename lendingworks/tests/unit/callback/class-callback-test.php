@@ -34,7 +34,7 @@ class Callback_Test extends TestCase
 			]
 		);
 
-		$this->callback->regiter_callback_route();
+		$this->callback->register_callback_route();
 	}
 
 	public function test_cannot_process_when_missing_signature()
