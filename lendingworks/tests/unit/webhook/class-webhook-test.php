@@ -53,6 +53,14 @@ class Webhook_Test extends TestCase
             'nonce' => 'TUVWXYZ',
         ];
 
+        $this->woocommerce_mock->method('unslash')
+            ->with($_POST)
+            ->willReturn($_POST);
+
+        $this->woocommerce_mock->method('sanitize')
+            ->withConsecutive([$_POST['order_id']], [$_POST['reference']], [$_POST['status']], [$_POST['nonce']])
+            ->willReturnOnConsecutiveCalls($_POST['order_id'], $_POST['reference'], $_POST['status'], $_POST['nonce']);
+
         $this->woocommerce_mock->expects($this->once())
             ->method('authenticate')
             ->with('TUVWXYZ', 'foobarbazqux')
@@ -78,6 +86,14 @@ class Webhook_Test extends TestCase
             'status' => $status,
             'nonce' => 'TUVWXYZ',
         ];
+
+        $this->woocommerce_mock->method('unslash')
+            ->with($_POST)
+            ->willReturn($_POST);
+
+        $this->woocommerce_mock->method('sanitize')
+            ->withConsecutive([$_POST['order_id']], [$_POST['reference']], [$_POST['status']], [$_POST['nonce']])
+            ->willReturnOnConsecutiveCalls($_POST['order_id'], $_POST['reference'], $_POST['status'], $_POST['nonce']);
 
         $this->woocommerce_mock->expects($this->once())
             ->method('authenticate')
@@ -119,6 +135,14 @@ class Webhook_Test extends TestCase
             'nonce' => 'TUVWXYZ',
         ];
 
+        $this->woocommerce_mock->method('unslash')
+            ->with($_POST)
+            ->willReturn($_POST);
+
+        $this->woocommerce_mock->method('sanitize')
+            ->withConsecutive([$_POST['order_id']], [$_POST['reference']], [$_POST['status']], [$_POST['nonce']])
+            ->willReturnOnConsecutiveCalls($_POST['order_id'], $_POST['reference'], $_POST['status'], $_POST['nonce']);
+
         $this->woocommerce_mock->expects($this->once())
             ->method('authenticate')
             ->with('TUVWXYZ', 'foobarbazqux')
@@ -157,6 +181,14 @@ class Webhook_Test extends TestCase
             'status' => 'declined',
             'nonce' => 'TUVWXYZ',
         ];
+
+        $this->woocommerce_mock->method('unslash')
+            ->with($_POST)
+            ->willReturn($_POST);
+
+        $this->woocommerce_mock->method('sanitize')
+            ->withConsecutive([$_POST['order_id']], [$_POST['reference']], [$_POST['status']], [$_POST['nonce']])
+            ->willReturnOnConsecutiveCalls($_POST['order_id'], $_POST['reference'], $_POST['status'], $_POST['nonce']);
 
         $this->woocommerce_mock->expects($this->once())
             ->method('authenticate')
@@ -199,6 +231,14 @@ class Webhook_Test extends TestCase
             'status' => 'invalid',
             'nonce' => 'TUVWXYZ',
         ];
+
+        $this->woocommerce_mock->method('unslash')
+            ->with($_POST)
+            ->willReturn($_POST);
+
+        $this->woocommerce_mock->method('sanitize')
+            ->withConsecutive([$_POST['order_id']], [$_POST['reference']], [$_POST['status']], [$_POST['nonce']])
+            ->willReturnOnConsecutiveCalls($_POST['order_id'], $_POST['reference'], $_POST['status'], $_POST['nonce']);
 
         $this->woocommerce_mock->expects($this->once())
             ->method('authenticate')

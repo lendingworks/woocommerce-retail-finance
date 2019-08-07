@@ -51,19 +51,19 @@ class Webhook {
 	 * @return array
 	 */
 	public function process() {
-		// phpcs:disable WordPress.Security.NonceVerification
-		// phpcs:disable WordPress.Security.ValidatedSanitizedInput
+        // phpcs:disable WordPress.Security.NonceVerification
 		if ( isset( $_POST['order_id'], $_POST['reference'], $_POST['status'], $_POST['nonce'] ) ) {
-			$order_id               = $_POST['order_id'];
-			$loan_request_reference = $_POST['reference'];
-			$status                 = $_POST['status'];
-			$nonce                  = $_POST['nonce'];
+			$input = $this->woocommerce->unslash( $_POST );
+            // phpcs:enable WordPress.Security.NonceVerification
+			$order_id               = $this->woocommerce->sanitize( $input['order_id'] );
+			$loan_request_reference = $this->woocommerce->sanitize( $input['reference'] );
+			$status                 = $this->woocommerce->sanitize( $input['status'] );
+			$nonce                  = $this->woocommerce->sanitize( $input['nonce'] );
 		} else {
 			$this->woocommerce->notify( 'There was a problem with your loan application. Please try again.', 'error' );
 			$this->woocommerce->redirect( $this->woocommerce->checkout_url() );
+			return [];
 		}
-		// phpcs:enable WordPress.Security.ValidatedSanitizedInput
-		// phpcs:enable WordPress.Security.NonceVerification
 
 		$order = $this->woocommerce->get_order( $order_id );
 

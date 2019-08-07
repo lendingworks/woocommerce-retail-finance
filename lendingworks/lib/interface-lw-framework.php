@@ -174,4 +174,32 @@ interface LW_Framework {
 	 * @return mixed
 	 */
 	public function error( $data, $status_code );
+
+	/**
+	 * Add a route to the WordPress site.
+	 *
+	 * @param string $namespace The namespace prefix for the route.
+	 * @param string $route The route.
+	 * @param array  $options Array of options for the route.
+	 */
+	public function add_route( $namespace, $route, $options );
+
+	/**
+	 * Remove slashes from a string or array of strings.
+	 *
+	 * @param string|array $value The string value or array of string values to sanitize.
+	 *
+	 * @return string|array
+	 */
+	public function unslash( $value );
+
+	/**
+	 * Sanitizes a string.
+	 *
+	 * @param string $value The string value to sanitize.
+	 *
+	 * @return string
+	 */
+	public function sanitize( $value );
+
 }

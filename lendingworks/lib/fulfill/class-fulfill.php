@@ -83,14 +83,14 @@ class Fulfill {
 			&& $this->is_lending_works_order( $order )
 			&& empty( $order->get_total_refunded() )
 		) {
-			// phpcs:disable WordPress.Security.EscapeOutput
+            // phpcs:disable WordPress.Security.EscapeOutput
 			echo "<p class='form-field form-field-wide lw-wc-order-fulfill'>
 					  <label for='fulfill-item'>Lending Works:</label>
 					  <input id='fulfill-item' type='submit' class='button fulfill-items' value='Fulfill order' 
 						data-order-reference='$loan_request_reference'
 						data-order-id='$order_id' $disabled/>
 				  </p>";
-			// phpcs:enable WordPress.Security.EscapeOutput
+            // phpcs:enable WordPress.Security.EscapeOutput
 		}
 	}
 
@@ -140,12 +140,11 @@ class Fulfill {
 	 * Fulfill an order when the 'Fulfill order' button is hit.
 	 */
 	public function ajax_fulfill_order() {
-		// phpcs:disable WordPress.Security.NonceVerification
-		// phpcs:disable WordPress.Security.ValidatedSanitizedInput
-		$order_id = isset( $_POST['order_id'] ) ? $_POST['order_id'] : 0;
-		// phpcs:enable WordPress.Security.ValidatedSanitizedInput
-		// phpcs:enable WordPress.Security.NonceVerification
+        // phpcs:disable WordPress.Security.NonceVerification
+		$input = $this->woocommerce->unslash( $_POST );
 
+		$order_id = isset( $_POST['order_id'] ) ? $this->woocommerce->sanitize( $input['order_id'] ) : 0;
+        // phpcs:enable WordPress.Security.NonceVerification
 		$order = $this->woocommerce->get_order( $order_id );
 
 		try {
