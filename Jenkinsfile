@@ -14,7 +14,7 @@ pipeline {
 				    // https://github.com/jenkinsci/pipeline-github-plugin#pullrequest
 				    if (env.CHANGE_ID) {
 					    pullRequest.createStatus(status: 'pending',
-						    context: 'SOMIC',
+						    context: 'WooCommerce Retail Finance',
 						    description: "The build is in progress.",
 						    targetUrl: "${env.BUILD_URL}display/redirect")
 				  }
